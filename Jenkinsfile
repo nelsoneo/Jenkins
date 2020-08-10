@@ -10,7 +10,6 @@ pipeline {
               build(job: 'build', quietPeriod: 5)
             }
 
-            mail(subject: 'Error de update', body: 'teste', to: 'nelsoneo@gmail.com')
           }
         }
 
