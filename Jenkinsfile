@@ -7,7 +7,7 @@ pipeline {
           steps {
             build 'Update'
             catchError(buildResult: 'failure') {
-              build 'build'
+              build(job: 'build', quietPeriod: 5)
             }
 
           }
