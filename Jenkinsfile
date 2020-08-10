@@ -4,6 +4,10 @@ pipeline {
     stage('Update') {
       steps {
         build 'Update'
+        catchError(buildResult: 'failure') {
+          build 'build'
+        }
+
       }
     }
 
