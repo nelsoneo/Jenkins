@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Update') {
           steps {
-            build 'Test'
+            build 'PipelineParalelo'
           }
         }
 
