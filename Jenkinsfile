@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Update') {
-      steps {
-        echo 'pronto'
+      parallel {
+        stage('Update') {
+          steps {
+            echo 'pronto'
+          }
+        }
+
+        stage('Passo1') {
+          steps {
+            build(job: 'paso1', propagate: true)
+          }
+        }
+
       }
     }
 
