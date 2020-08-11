@@ -1,14 +1,12 @@
 pipeline {
   agent any
-     triggers {
-        cron('H/3 * * * *')
-    }
   stages {
     stage('Update') {
       parallel {
         stage('Update') {
           steps {
-            echo 'pronto'
+            echo 'update kb'
+            build(job: 'update', propagate: true)
           }
         }
 
@@ -21,5 +19,8 @@ pipeline {
       }
     }
 
+  }
+  triggers {
+    cron('H/3 * * * *')
   }
 }
