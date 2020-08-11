@@ -5,11 +5,7 @@ pipeline {
       parallel {
         stage('Update') {
           steps {
-            build 'Update'
-            catchError(buildResult: 'failure') {
-              build(job: 'build', quietPeriod: 5)
-            }
-
+            build 'Test'
           }
         }
 
