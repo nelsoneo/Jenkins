@@ -22,15 +22,6 @@ pipeline {
         }
 
       }
-      post {
-        failure {
-              stage('IHML') {
-      steps {
-        echo 'pronto ihml'
-      }
-    }
-        }
-      }
     }
 
     stage('Build') {
