@@ -22,6 +22,11 @@ pipeline {
         }
 
       }
+      post {
+        always {
+          build job: 'build'
+        }
+      }
     }
 
     stage('Build') {
