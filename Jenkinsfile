@@ -24,7 +24,7 @@ pipeline {
       }
       post {
         failure {
-          build job: 'Build'
+          stage: 'IHML'
         }
       }
     }
