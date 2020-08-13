@@ -24,7 +24,11 @@ pipeline {
       }
       post {
         failure {
-          stage: 'IHML'
+              stage('IHML') {
+      steps {
+        echo 'pronto ihml'
+      }
+    }
         }
       }
     }
