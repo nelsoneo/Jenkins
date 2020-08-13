@@ -22,6 +22,11 @@ pipeline {
         }
 
       }
+      post {
+        failure {
+          stage 'Build'
+        }
+      }
     }
 
     stage('Build') {
