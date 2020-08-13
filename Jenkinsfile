@@ -24,7 +24,7 @@ pipeline {
       }
       post {
         failure {
-          stage 'Build'
+          build job: 'Build'
         }
       }
     }
