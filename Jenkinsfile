@@ -12,8 +12,8 @@ pipeline {
         stage('kb-park') {
           steps {
             build(job: 'update', propagate: true)
-            catchError(buildResult: 'FAILURE', stageResult: 'FAILURE', catchInterruptions: true, message: 'falha na kb - park') {
-              build(job: 'build', propagate: true)
+            catchError(buildResult: 'FAILURE', stageResult: 'FAILURE', message: 'falha na kb - park') {
+              sh 'build'
             }
 
           }
