@@ -33,7 +33,7 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            echo 'pronto build'
+            build 'build'
           }
         }
 
