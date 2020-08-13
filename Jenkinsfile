@@ -2,14 +2,42 @@ pipeline {
   agent any
   stages {
     stage('Update') {
-      steps {
-        echo 'update kb'
+      parallel {
+        stage('Update') {
+          steps {
+            echo 'update kb'
+          }
+        }
+
+        stage('kb-park') {
+          steps {
+            build(job: 'update', propagate: true)
+          }
+        }
+
+        stage('kb-farmacia') {
+          steps {
+            echo 'pronto'
+          }
+        }
+
       }
     }
 
     stage('Build') {
-      steps {
-        echo 'pronto build'
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'pronto build'
+          }
+        }
+
+        stage('kb-park') {
+          steps {
+            echo 'pronto'
+          }
+        }
+
       }
     }
 
