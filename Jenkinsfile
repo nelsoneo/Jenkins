@@ -12,6 +12,9 @@ pipeline {
         stage('kb-park') {
           steps {
             build(job: 'update', propagate: true)
+            when {
+              result
+            }
           }
         }
 
@@ -21,11 +24,6 @@ pipeline {
           }
         }
 
-      }
-      post {
-        always {
-          build job: 'build'
-        }
       }
     }
 
